@@ -6,9 +6,7 @@ import Quiz from "./Components/Quiz";
 export default function Home() {
   return (
     <div className="min-h-screen grid grid-cols-2 grid-rows-2 justify-center items-center gap-4 p-4 ">
-         <Assignment></Assignment>
-         <Notification></Notification>
-         <Quiz></Quiz>
+         
     </div>
   );
 }
