@@ -5,11 +5,10 @@ import Quiz from '../Components/Quiz'
 
 export default function dashboardPage() {
   return (
-    <>
-      <Assignment />
-      <Notification />
-      <Quiz />
-      <div></div>
-    </>
+    <div >
+      <Assignment></Assignment>
+         <Notification></Notification>
+         <Quiz></Quiz>
+    </div>
   )
 }
