@@ -14,6 +14,8 @@ export default function Gallery() {
                         <Image
                             alt={name}
                             src={src}
+                            width={src.width}
+                            height={src.height}
                             className="w-full object-cover aspect-square"
                         />
                     </Link>
