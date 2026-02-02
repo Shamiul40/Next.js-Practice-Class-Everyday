@@ -1,39 +1,46 @@
-import comments from "@/app/data/comments"
-import { comment } from "postcss"
+import comments from "@/app/data/comments";
+import { redirect } from "next/navigation";
+import { comment } from "postcss";
 
-export const GET =async(request, {params}) =>{
-  const commentId = params.id
+export const GET = async (request, { params }) => {
+  const commentId = params.id;
 
-  const comment = comments.find(comment=>comment.id === parseInt(commentId))
+  if(parseInt(commentId)>comments.length) {
+    redirect('/api/comments')
+  }
 
-  return Response.json(comment)
-}
+  const comment = comments.find(
+    (comment) => comment.id === parseInt(commentId),
+  );
 
+  return Response.json(comment);
+};
 
-export const PATCH =async(request, {params})=>{
-    const comment = await request.json();
-    const id = params.id
-        console.log("comment", comment)
-    const commentIndex = comments.findIndex(comment=>comment.id === parseInt(id))
+export const PATCH = async (request, { params }) => {
+  const comment = await request.json();
+  const id = params.id;
+  console.log("comment", comment);
+  const commentIndex = comments.findIndex(
+    (comment) => comment.id === parseInt(id),
+  );
 
-    console.log("comment index ", commentIndex)
+  console.log("comment index ", commentIndex);
 
-    comments[commentIndex].text = comment.text
+  comments[commentIndex].text = comment.text;
 
-    return Response.json(comments[commentIndex])
-}
+  return Response.json(comments[commentIndex]);
+};
 
+export const DELETE = async (request, { params }) => {
+  const id = params.id;
 
-export const DELETE =async(request, {params})=>{
+  const commentIndex = comments.findIndex(
+    (comment) => comment.id === parseInt(id),
+  );
 
-const id = params.id
+  const commentToDelete = comments[commentIndex];
 
-const commentIndex = comments.findIndex(comment=>comment.id === parseInt(id))
+  comments.splice(commentIndex, 1);
 
-const commentToDelete = comments[commentIndex];
-
-comments.splice(commentIndex, 1)
-
-return Response.json(commentToDelete)
-
-}
+  return Response.json(commentToDelete);
+};
