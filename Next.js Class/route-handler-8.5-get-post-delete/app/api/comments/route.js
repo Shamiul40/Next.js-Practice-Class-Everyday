@@ -1,6 +1,9 @@
 import comments from "@/app/data/comments"
 
-export const GET=async()=>{
+export const GET=async(request)=>{
+
+    const searchParams = request.nextUrl.
+
  return Response.json(comments)
 }
  
