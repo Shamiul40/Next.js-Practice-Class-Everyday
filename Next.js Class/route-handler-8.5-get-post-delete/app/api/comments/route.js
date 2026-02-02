@@ -1,8 +1,16 @@
 import comments from "@/app/data/comments"
+import { comment } from "postcss";
 
 export const GET=async(request)=>{
 
-    const searchParams = request.nextUrl.
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get("query")
+    
+    if(query) {
+        const filteredComments = comments.filter(comment=>comment.text.includes(query))
+
+        return Response.json(filteredComments)
+    }
 
  return Response.json(comments)
 }
