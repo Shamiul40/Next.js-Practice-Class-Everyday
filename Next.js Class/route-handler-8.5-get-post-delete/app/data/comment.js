@@ -1,0 +1,32 @@
+const comment =[
+    {
+        id : 1,
+        text : "comment 1"
+    },
+     {
+        id : 2,
+        text : "comment 2"
+    },
+     {
+        id : 3,
+        text : "comment 3"
+    }
+]
+
+export default comment;
+
+
+export default const comment =[
+    {
+        id : 1,
+        text : "comment 1"
+    },
+     {
+        id : 2,
+        text : "comment 2"
+    },
+     {
+        id : 3,
+        text : "comment 3"
+    }
+]
