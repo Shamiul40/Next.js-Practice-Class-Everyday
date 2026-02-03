@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server"
 
-export function middleware(){
-    console.log("i am middleware")
+export function middleware(request){
+   console.log(request.url)
 
-    return NextResponse.json({
-        hello : "i am so happy"
-    })
+
+    return NextResponse.redirect(new URL("/", request.url))
+
+
+  
+
+}
+
+export const config ={
+    matcher : "/api",
 }
