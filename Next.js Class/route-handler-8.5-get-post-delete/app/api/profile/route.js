@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 export async function GET(request){
     const requestHeaders = new Headers(request.headers);
@@ -7,5 +7,15 @@ export async function GET(request){
 
     console.log(requestHeaders.get("Authorization"));
     console.log(headersList.get("Authorization"));
-    return new Response("profile api")
+
+    cookies().set("page", "2")
+    console.log(cookies().get("page"))
+
+    console.log(request.cookies.get("theme"))
+
+    return new Response("profile api", {
+        headers :{
+            "set-cookie" : "theme=dark"
+        }
+    })
 }
