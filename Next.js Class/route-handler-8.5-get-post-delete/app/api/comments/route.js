@@ -1,40 +1,33 @@
 import comments from "@/app/data/comments"
-import { comment } from "postcss";
+import { NextResponse } from "next/server";
 
-export const GET=async(request)=>{
+export const GET = async (request) => {
+  const searchParams = request.nextUrl.searchParams;
+  const query = searchParams.get("query");
 
-    const searchParams = request.nextUrl.searchParams;
-    const query = searchParams.get("query")
-    
-    if(query) {
-        const filteredComments = comments.filter(comment=>comment.text.includes(query))
+  if (query) {
+    const filteredComments = comments.filter((comment) =>
+      comment.text.includes(query),
+    );
 
-        return Response.json(filteredComments)
-    }
+    return NextResponse.json(filteredComments);
+  }
 
- return Response.json(comments)
-}
- 
+  return NextResponse.json(comments);
+};
 
- export const POST =async(request)=>{
+export const POST = async (request) => {
+  const id = comments.length + 1;
 
-    const id = comments.length + 1;
+  const comment = await request.json();
 
-    const comment = await request.json();
+  const newComments = {
+    id,
+    text: comment.text,
+  };
 
+  comments.push(newComments);
+  console.log("comments and newcomments here", comment, newComments);
 
-    const newComments = {
-        id,
-        text: comment.text
-    }
-
-    comments.push(newComments)
-    console.log("comments and newcomments here", comment, newComments)
-
-    return new Response(JSON.stringify(newComments), {
-        headers :{
-            "content-type" : "application / json"
-        },
-        status : 201,
-    })
- }
+  return NextResponse.json(newComments, { status: 201 });
+};

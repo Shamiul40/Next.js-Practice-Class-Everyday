@@ -1,19 +1,18 @@
 import comments from "@/app/data/comments";
-import { redirect } from "next/navigation";
-import { comment } from "postcss";
+import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
   const commentId = params.id;
 
-  if(parseInt(commentId)>comments.length) {
-    redirect('/api/comments')
+  if (parseInt(commentId) > comments.length) {
+    return NextResponse.redirect(new URL('/api/comments', request.url));
   }
 
   const comment = comments.find(
     (comment) => comment.id === parseInt(commentId),
   );
 
-  return Response.json(comment);
+  return NextResponse.json(comment);
 };
 
 export const PATCH = async (request, { params }) => {
@@ -28,7 +27,7 @@ export const PATCH = async (request, { params }) => {
 
   comments[commentIndex].text = comment.text;
 
-  return Response.json(comments[commentIndex]);
+  return NextResponse.json(comments[commentIndex]);
 };
 
 export const DELETE = async (request, { params }) => {
@@ -42,5 +41,5 @@ export const DELETE = async (request, { params }) => {
 
   comments.splice(commentIndex, 1);
 
-  return Response.json(commentToDelete);
+  return NextResponse.json(commentToDelete);
 };
