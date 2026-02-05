@@ -1,9 +1,13 @@
 import React from 'react'
+import { getDictionary } from '../dictionaries/dictionaries'
 
-export default function ContactPage() {
+export default async function ContactPage({params : {lang}}) {
+
+  const dict = await getDictionary(lang)
+
   return (
     <div>
-      ContactPage heere
+      <h1>{dict.contact}</h1>
     </div>
   )
 }
