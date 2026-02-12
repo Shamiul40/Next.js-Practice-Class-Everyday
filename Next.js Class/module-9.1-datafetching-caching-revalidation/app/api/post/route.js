@@ -1,16 +1,10 @@
-import { NextResponse } from "next/server"
+import { getPost } from "@/app/lib/getPost"
+import { NextResponse } from "next/server";
 
+export const GET=async(request)=>{
+   
+    const post = await getPost();
 
-export async function GET(request){
-
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-
-    if(!res.ok) {
-        throw new Error("no post here")
-
-    }
- const data = await res.json()
-
- return NextResponse.json(data)
+    return NextResponse.json(post)
 
 }
