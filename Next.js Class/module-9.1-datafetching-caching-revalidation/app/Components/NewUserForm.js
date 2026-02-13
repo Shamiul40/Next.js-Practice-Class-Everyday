@@ -4,7 +4,8 @@ export default async function NewUserForm() {
 
     const addUser=async(formData)=>{
        "use server" 
-       console.log(formData.name)
+       console.log(formData.get("name"))
+       console.log(formData.get("email"))
     //    console.log(formData.email)
 
     }
