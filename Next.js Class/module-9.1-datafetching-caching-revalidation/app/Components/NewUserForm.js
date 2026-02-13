@@ -10,8 +10,12 @@ export default function NewUserForm() {
             <input className='w-full p-2 m-2 text-black' name='email' type='email' placeholder='email here'/>
        </div>
         <div className='flex justify-center items-center bg-green-600 p-2 m-2 w-2/12 mx-auto'>
-            <button>submit</button>
+            <button type='submit'>submit</button>
         </div>
     </div>
   )
 }
+
+
+
+
