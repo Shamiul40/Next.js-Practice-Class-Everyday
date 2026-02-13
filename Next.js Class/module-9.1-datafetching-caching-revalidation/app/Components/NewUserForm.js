@@ -1,8 +1,16 @@
 import React from 'react'
 
-export default function NewUserForm() {
+export default async function NewUserForm() {
+
+    const addUser=async(formData)=>{
+       "use server" 
+       console.log(formData.name)
+    //    console.log(formData.email)
+
+    }
+
   return (
-    <div className='border border-gray-200 w-full m-4 p-4'>
+    <form action={addUser} className='border border-gray-200 w-full m-4 p-4'>
        <div>
             <input className='w-full p-2 m-2 text-black' name='name' type='text' placeholder='name here'/>
        </div>
@@ -12,7 +20,7 @@ export default function NewUserForm() {
         <div className='flex justify-center items-center bg-green-600 p-2 m-2 w-2/12 mx-auto'>
             <button type='submit'>submit</button>
         </div>
-    </div>
+    </form>
   )
 }
 
