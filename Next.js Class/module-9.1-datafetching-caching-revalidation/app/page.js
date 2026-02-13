@@ -1,20 +1,17 @@
 import { cookies } from "next/headers";
 import Image from "next/image";
 import { getJoke } from "./lib/getJoke";
+import NewUserForm from "./Components/NewUserForm";
+import UserList from "./Components/UserList";
 
 export default async function Home() {
-  const theme = cookies().get("theme")
-  const joke= await getJoke()
+ 
    
 
   return (
-    <>
-      <h1>shamiul islam</h1>
-      
-        <p>
-          {joke.value}
-        </p>
-      
-    </>
+    <div className="flex flex-col justify-center gap-2 w-10/12 mx-auto items-center min-h-screen">
+      <NewUserForm></NewUserForm>
+      <UserList></UserList>
+    </div>
   );
 }
