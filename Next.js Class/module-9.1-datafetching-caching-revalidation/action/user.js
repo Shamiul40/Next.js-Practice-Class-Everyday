@@ -1,6 +1,7 @@
 "use server";
 import connectMongo from "@/dbconnect/connectMongo";
 import User from "@/models/user";
+import { wait } from "@/utils/wait";
 import { revalidatePath } from "next/cache";
 
 export const addUser = async (formData) => {
@@ -14,6 +15,8 @@ export const addUser = async (formData) => {
 
   try {
     await connectMongo();
+
+    await wait(3000)
 
     //  data save
     await new User(userData).save();
