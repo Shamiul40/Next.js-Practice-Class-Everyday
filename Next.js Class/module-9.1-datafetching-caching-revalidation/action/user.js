@@ -15,7 +15,29 @@ export const addUser=async(formData)=>{
         email
        }
 
-       await connectMongo()
+      
+       try {
+         await connectMongo()
 
        await new User(userData).save();
+       } catch (err) {
+        console.log(err)
+       }
+
     }
+
+
+export const getUsers =async()=>{
+
+    try {
+        await connectMongo();
+
+
+    const Users = await User.find();
+    
+    return Users
+    } catch (err) {
+        console.log(err)
+    }
+
+}
