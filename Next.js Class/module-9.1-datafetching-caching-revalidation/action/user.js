@@ -19,9 +19,7 @@ export const addUser = async (formData) => {
     await new User(userData).save();
 
     //    revalidate data
-    revalidatePath("/")
-    
-
+    revalidatePath("/");
   } catch (err) {
     console.log(err);
   }
