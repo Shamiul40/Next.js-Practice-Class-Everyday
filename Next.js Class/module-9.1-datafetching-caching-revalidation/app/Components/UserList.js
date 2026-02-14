@@ -1,10 +1,24 @@
+import { getUsers } from '@/action/user'
 import React from 'react'
 
-export default function UserList() {
+export default async function UserList() {
+
+  const users = await getUsers()
+
   return (
     <div className='border border-gray-400 w-full p-4 m-4'>
       <h1>User List</h1>
+
+    {users.length >0 ? (
+      
+        users.map(user=><p key={user}> {user.name} : {user.email} </p>)
+      
+    ) : (
       <div>no user found</div>
+    )
+     }
+
+      
     </div>
   )
 }
