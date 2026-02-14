@@ -1,4 +1,5 @@
 import connectMongo from '@/dbconnect/connectMongo'
+import User from '@/models/user'
 import React from 'react'
 
 export default async function NewUserForm() {
@@ -9,13 +10,14 @@ export default async function NewUserForm() {
        const name = formData.get("name")
        const email = formData.get("email")
 
-       const user = {
+       const userData = {
         name,
         email
        }
 
        await connectMongo()
 
+       await new User(userData).save();
     }
 
   return (

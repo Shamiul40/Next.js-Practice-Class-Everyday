@@ -3,13 +3,13 @@ const { default: mongoose } = require("mongoose");
 
 const userSchema = new mongoose.Schema({
     name : {
-        type : string,
+        type : "string",
         default : "anonymous",
         min: 2,
         max :100,
     },
     email : {
-        type : string,
+        type : "string",
         min :2,
         max :100,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
@@ -17,4 +17,6 @@ const userSchema = new mongoose.Schema({
 })
 
 
-const User = mongoose.models.User || mongoose.model("User", userSchema)
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+export default User ;
