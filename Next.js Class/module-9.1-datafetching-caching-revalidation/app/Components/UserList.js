@@ -11,7 +11,7 @@ export default async function UserList() {
 
     {users.length >0 ? (
       
-        users.map((user, index)=><p key={user.id}> {index+1}. {" "} {user.name} - {user.email} </p>)
+        users.map((user, index)=><p key={user.id}> {index+1}. {user.name} - {user.email} </p>)
       
     ) : (
       <div>no user found</div>
