@@ -17,3 +17,4 @@ const userSchema = new mongoose.Schema({
 })
 
 
+// C:\Program Files\MongoDB\Server\8.2\data\
