@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     name : {
         type : "string",
         default : "anonymous",
-        min: 2,
+        min: 1,
         max :70,
     },
     email : {
