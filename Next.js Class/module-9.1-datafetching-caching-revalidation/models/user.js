@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     email : {
         type : "string",
         min :2,
-        max :100,
+        max :70,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     }
 })
