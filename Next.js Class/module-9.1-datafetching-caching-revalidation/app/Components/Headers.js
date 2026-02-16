@@ -10,7 +10,7 @@ export default function Headers() {
           <Link href={"/sequntials/posts"} className="border border-blue-600 px-8 py-4 bg-blue-200 text-black rounded-sm">Sequntial data fetching</Link>
         </div>
         <div className="">
-          <Link href={"/sequntials/posts"} className="border border-blue-600 px-8 py-4 bg-green-200 text-black rounded-sm">Parallal data fetching</Link>
+          <Link href={"/parallel/posts"} className="border border-blue-600 px-8 py-4 bg-green-200 text-black rounded-sm">Parallal data fetching</Link>
         </div>
       </div>
     </div>
