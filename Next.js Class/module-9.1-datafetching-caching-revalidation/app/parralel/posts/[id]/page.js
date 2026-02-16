@@ -1,10 +1,18 @@
+import Comment from "@/app/Components/Comment";
 import { getComments } from "@/app/lib/getComments";
 import { getPost } from "@/app/lib/getPost";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default async function PostPage({ params: { id } }) {
-  const post = await getPost(id);
-  const comments = await getComments(id)
+  // const post = await getPost(id);
+  // const comments = await getComments(id)
+
+  const postPromise = getPost(id);
+  const commentPromise = getComments(id)
+
+  const post = await postPromise
+  
+
 
   return (
     <div className="mt-10">
@@ -14,10 +22,9 @@ export default async function PostPage({ params: { id } }) {
         <h1 className=" px-2 py-1">{post.body}</h1>
       </div>
       <div className="mt-6 border-t border-green-300">
-        <ul className="mt-5">{
-            comments.map(comment=> 
-            <li key={comment.id}>{comment.id }. {comment.body} </li>)
-            }</ul>
+        <Suspense fallback={<div>loading Comments...</div>}>
+          <Comment commentPromise={commentPromise}></Comment>
+        </Suspense>
       </div>
     </div>
   );
