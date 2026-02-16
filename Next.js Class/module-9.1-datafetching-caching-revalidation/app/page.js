@@ -10,11 +10,14 @@ export default async function Home() {
    
 
   return (
-    <div className="flex flex-col justify-center gap-2 w-10/12 mx-auto items-center min-h-screen">
+    <div className="flex flex-col justify-center gap-2 w-10/12 mx-auto items-center ">
       {/* <NewUserForm></NewUserForm>
       <UserList></UserList> */}
 
       {/* <Headers></Headers> */}
+        {/* data fetching best practice */}
+
+        <h1 className="mt-10">Please click the above link</h1>
     </div>
   );
 }
