@@ -4,14 +4,14 @@ import React from "react";
 
 export default async function SequentialPage() {
   const posts = await getPosts();
-  console.log(posts);
+  
 
   return (
     <div className="mt-10">
       {posts.length > 0 ? (
         <ul>
           {posts.map((post) => (
-            <Link href={`sequntials/posts/${post.id}`} key={post.id}>
+            <Link href={`posts/${post.id}`} key={post.id}>
             <li >
               {post.id}. {post.title}
             </li>
