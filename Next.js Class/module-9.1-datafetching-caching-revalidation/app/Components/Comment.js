@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Comment({commentPromise}) {
+export default async function Comment({commentPromise}) {
 
-    const comments = commentPromise;
+    const comments = await commentPromise;
 
   return (
     <div>
