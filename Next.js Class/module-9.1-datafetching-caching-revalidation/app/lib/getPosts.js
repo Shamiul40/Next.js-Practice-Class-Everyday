@@ -1,3 +1,4 @@
+import { wait } from "./wait";
 
 export const getPosts =async()=> {
     const posts = await fetch("https://jsonplaceholder.typicode.com/posts")
@@ -6,6 +7,8 @@ export const getPosts =async()=> {
         throw new Error("post does not found")
     }
 
+
+   await wait(4000)
 
     return posts.json();
 }
