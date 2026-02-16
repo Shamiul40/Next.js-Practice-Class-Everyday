@@ -8,7 +8,7 @@ export const getPosts =async()=> {
     }
 
 
-   await wait(4000)
+   await wait(1000)
 
     return posts.json();
 }

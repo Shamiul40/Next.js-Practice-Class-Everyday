@@ -8,7 +8,7 @@ export const getPost=async(postId)=>{
     }
 
 
-   await wait(5000)
+   await wait(2000)
 
     return  post.json();
 }

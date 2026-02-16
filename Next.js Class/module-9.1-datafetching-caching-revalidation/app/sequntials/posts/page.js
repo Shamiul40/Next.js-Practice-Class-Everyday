@@ -8,6 +8,7 @@ export default async function SequentialPage() {
 
   return (
     <div className="mt-10">
+        <h1 className="text-2xl my-2">All Posts Here</h1>
       {posts.length > 0 ? (
         <ul>
           {posts.map((post) => (
