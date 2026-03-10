@@ -6,7 +6,7 @@ export default async function Comment({commentPromise}) {
 
   return (
     <div>
-      <ul className="mt-5">{
+      <ul className="mt-4">{
             comments.map(comment=> 
             <li key={comment.id}>{ comment.id }. {comment.body} </li>)
             }</ul>
