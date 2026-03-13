@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <h1>shamiul islam here jjaaajjjjajajjajja aha</h1>
+    <h1>shamiul islam here jjaaajjjjajajjajja a</h1>
   );
 }
